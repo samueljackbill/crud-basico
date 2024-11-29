@@ -95,12 +95,12 @@ $(function () {
 
             // Verifica se o array dados é null
             if (dados == null) {
-                registro.Id = dados.length + 1
-            }
-            else {
 
                 // Primeiro índice do array de dados
                 registro.Id = 1
+            }
+            else {
+                registro.Id = dados.length + 1
             }
 
             // registro.Id = dados.length + 1
