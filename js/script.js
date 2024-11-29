@@ -64,7 +64,7 @@ function PopulaTabela() {
 
 // Função executada ao abrir ou recarregar a página web
 $(function () {
-    
+
     // Executa ao carregar a tela
     dados = JSON.parse(localStorage.getItem("__dados__"))
 
@@ -84,6 +84,8 @@ $(function () {
 
         // Verifica se é inserção de um novo registro ou edição de um já existente
         if (!_Id || _Id == "0"){
+
+            // Insere novo registro
             let registro = {}
             registro.Nome = Nome
             registro.Sobrenome = Sobrenome
@@ -91,10 +93,22 @@ $(function () {
             registro.Email = Email
             registro.Instagram = Instagram
 
-            registro.Id = dados.length + 1
+            // Verifica se o array dados é null
+            if (dados == null) {
+                registro.Id = dados.length + 1
+            }
+            else {
+
+                // Primeiro índice do array de dados
+                registro.Id = 1
+            }
+
+            // registro.Id = dados.length + 1
             dados.push(registro)
         }
         else {
+
+            // Edita registro existente
             dados.forEach(function(item) {
                 if (item.Id == _Id) {
                     item.Nome = Nome
