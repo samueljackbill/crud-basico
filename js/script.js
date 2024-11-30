@@ -97,6 +97,7 @@ $(function () {
             if (dados == null) {
 
                 // Primeiro índice do array de dados
+                dados = []
                 registro.Id = 1
             }
             else {
